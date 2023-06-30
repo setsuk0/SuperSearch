@@ -24,3 +24,22 @@ package-lock.json
 yarn.lock
 
 commit.sh
+# Ignore node_modules directory
+node_modules/
+
+# Ignore environment-specific files
+.env
+.env.local
+.env.*.local
+
+# Ignore build output directories
+/build/
+/dist/
+
+# Ignore editor-specific files
+.idea/
+.vscode/
+*.sublime-*
+*.swp
+*.swo
+*.bak
