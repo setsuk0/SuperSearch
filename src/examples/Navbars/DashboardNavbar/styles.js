@@ -106,7 +106,7 @@ const navbarRow = ({ breakpoints, palette: { white } }, { isMini }) => ({
   alignItems: "center",
   justifyContent: "space-between",
   width: "100%",
-  "&.MuiBox-root": {
+  "&.-root": {
     "& nav": {
       "& ol": {
         "& li": {
