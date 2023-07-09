@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Card } from '@mui/material';
 import VuiBox from 'components/VuiBox';
@@ -11,6 +11,19 @@ import CircularProgress from '@mui/material/CircularProgress';
 const SatisfactionRate = () => {
 	const { info, gradients } = colors;
 	const { cardContent } = gradients;
+	const [character,setCharacter] = useState('')
+
+	useEffect(() => { 
+		fetch(`http://localhost:4000/character`).then((r) =>{
+			return r.json()
+
+		}).then( (re) => {
+			setCharacter(re[0].aliases)
+
+  })
+
+	},[])
+
 
 	return (
 		<Card sx={{ height: '340px' }}>
@@ -19,7 +32,7 @@ const SatisfactionRate = () => {
 					Satisfaction Rate
 				</VuiTypography>
 				<VuiTypography variant='button' color='text' fontWeight='regular' mb='20px'>
-					From all projects
+					{character}
 				</VuiTypography>
 				<VuiBox sx={{ alignSelf: 'center', justifySelf: 'center', zIndex: '-1' }}>
 					<VuiBox sx={{ position: 'relative', display: 'inline-flex' }}>
